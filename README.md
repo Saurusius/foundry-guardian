@@ -1,4 +1,4 @@
-# Foundry Guardian
+# 🛡️ Foundry Guardian
 
 **Foundry Guardian** permet de réserver les réglages sensibles de Foundry VTT à certains comptes Game Master explicitement autorisés.
 
