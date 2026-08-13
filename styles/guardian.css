@@ -1,0 +1,254 @@
+.foundry-guardian {
+  max-height: calc(100vh - 72px);
+}
+
+.foundry-guardian .window-content {
+  padding: 0;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  scrollbar-gutter: stable;
+}
+
+.fg-config {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+}
+
+.fg-hero {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--color-border-light-2, #777);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.fg-hero h2,
+.fg-hero p,
+.fg-warning p,
+.fg-note p {
+  margin: 0;
+}
+
+.fg-shield {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  background: rgba(80, 130, 255, 0.15);
+  border: 1px solid rgba(100, 150, 255, 0.35);
+}
+
+.fg-warning,
+.fg-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 7px;
+}
+
+.fg-warning {
+  background: rgba(255, 180, 0, 0.12);
+  border: 1px solid rgba(255, 180, 0, 0.35);
+}
+
+.fg-note {
+  background: rgba(80, 130, 255, 0.10);
+  border: 1px solid rgba(80, 130, 255, 0.28);
+}
+
+.fg-fieldset {
+  border: 1px solid var(--color-border-light-2, #777);
+  border-radius: 7px;
+  padding: 10px;
+}
+
+.fg-fieldset legend {
+  padding: 0 7px;
+  font-weight: 700;
+}
+
+.fg-user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fg-user-row,
+.fg-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 9px 10px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.fg-user-row:hover,
+.fg-toggle-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.fg-user-main {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.fg-user-color {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--fg-user-color, #888);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.35);
+}
+
+.fg-user-row small,
+.fg-toggle-row small {
+  display: block;
+  opacity: 0.72;
+  margin-top: 2px;
+}
+
+.fg-user-row input,
+.fg-toggle-row input {
+  flex: 0 0 auto;
+}
+
+.fg-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fg-save {
+  min-width: 160px;
+}
+
+body.foundry-guardian-restricted [data-fg-protected="true"] {
+  display: none !important;
+}
+
+/* v0.1.1 - Compact administrator picker */
+.fg-admin-picker {
+  margin-top: 2px;
+  border: 1px solid var(--color-border-light-2, #777);
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.fg-admin-picker > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 12px;
+  cursor: pointer;
+  font-weight: 700;
+  user-select: none;
+}
+
+.fg-admin-picker > summary:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.fg-admin-summary-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fg-admin-count {
+  flex: 0 0 auto;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.82em;
+  font-weight: 600;
+  opacity: 0.9;
+  background: rgba(80, 130, 255, 0.16);
+  border: 1px solid rgba(100, 150, 255, 0.30);
+}
+
+.fg-admin-picker-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 10px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fg-user-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  border: 1px solid var(--color-border-light-2, #777);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.10);
+}
+
+.fg-user-search-wrap i {
+  opacity: 0.65;
+}
+
+.fg-user-search {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.fg-user-search:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.fg-admin-picker .fg-user-list {
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 3px;
+}
+
+.fg-user-row[hidden] {
+  display: none !important;
+}
+
+.fg-empty-search {
+  margin: 8px 2px 2px;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* v0.1.2 - The complete Guardian window stays inside the viewport and scrolls vertically. */
+.foundry-guardian .window-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.foundry-guardian .window-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.foundry-guardian .window-content::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 170, 0.5);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+.foundry-guardian .window-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(190, 190, 210, 0.7);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}

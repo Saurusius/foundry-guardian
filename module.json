@@ -1,0 +1,32 @@
+{
+  "id": "foundry-guardian",
+  "title": "Foundry Guardian",
+  "description": "Protège les réglages sensibles de Foundry VTT et permet de choisir simplement quels MJ conservent les accès administrateur.",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Saurusius"
+    }
+  ],
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14.365"
+  },
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "styles/guardian.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
+  ],
+  "url": "https://github.com/Saurusius/foundry-guardian",
+  "manifest": "https://github.com/Saurusius/foundry-guardian/releases/latest/download/module.json",
+  "download": "https://github.com/Saurusius/foundry-guardian/releases/download/v1.0.0/foundry-guardian-v1.0.0.zip",
+  "bugs": "https://github.com/Saurusius/foundry-guardian/issues"
+}
