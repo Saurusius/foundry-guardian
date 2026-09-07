@@ -107,8 +107,11 @@ dans :
 Redémarrez Foundry VTT puis activez Foundry Guardian dans votre monde.
 
 ## ⚙️ Compatibilité
+
 Foundry VTT minimum : 14
+
 Version vérifiée : 14.366
+
 Système de jeu : indépendant
 
 ## ⚠️ Limite de sécurité
