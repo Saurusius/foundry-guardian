@@ -1,0 +1,88 @@
+<div class="fg-config">
+  <section class="fg-hero">
+    <div class="fg-shield"><i class="fa-solid fa-shield-halved"></i></div>
+    <div>
+      <h2>Foundry Guardian</h2>
+      <p>Choisissez les MJ qui ont le droit de modifier les réglages importants de ce monde.</p>
+    </div>
+  </section>
+
+  <details class="fg-user-management" open>
+    <summary>
+      <span><i class="fa-solid fa-users-gear"></i> <strong>Gestion des utilisateurs</strong></span>
+      <span class="fg-admin-count">{{managedUserCount}} utilisateur{{#unless singleManagedUser}}s{{/unless}}</span>
+    </summary>
+
+    <div class="fg-user-management-body">
+      <fieldset class="fg-fieldset fg-create-user">
+        <legend><i class="fa-solid fa-user-plus"></i> Créer un profil</legend>
+        <div class="fg-user-form-grid">
+          <label><span>Nom</span><input type="text" name="newName" placeholder="Nom du joueur" autocomplete="off"></label>
+          <label><span>Rôle</span><select name="newRole">{{#each newUserRoles}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label>
+          <label><span>Mot de passe</span><input type="password" name="newPassword" placeholder="Mot de passe" autocomplete="new-password"></label>
+          <label><span>Confirmation</span><input type="password" name="newPasswordConfirm" placeholder="Confirmer" autocomplete="new-password"></label>
+        </div>
+        <button type="button" class="fg-primary" data-fg-action="create-user"><i class="fa-solid fa-user-plus"></i> Créer le profil</button>
+      </fieldset>
+
+      <div class="fg-users-toolbar">
+        <label class="fg-user-search-wrap"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="fg-managed-user-search" placeholder="Rechercher un utilisateur…" autocomplete="off"></label>
+      </div>
+
+      <div class="fg-managed-users">
+        {{#each managedUsers}}
+        <article class="fg-managed-user" data-user-id="{{id}}" data-user-name="{{name}}">
+          <header>
+            <span class="fg-user-main"><span class="fg-user-color" style="--fg-user-color: {{color}}"></span><span><strong>{{name}}</strong><small>{{roleLabel}}{{#if active}} · connecté{{/if}}{{#if isGuardianAdmin}} · Admin Guardian{{/if}}</small></span></span>
+            {{#if isSelf}}<span class="fg-badge">Vous</span>{{/if}}
+          </header>
+          <div class="fg-user-form-grid fg-edit-grid">
+            <label><span>Nom</span><input type="text" name="name" value="{{name}}" autocomplete="off"></label>
+            <label><span>Rôle</span><select name="role">{{#each roles}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></label>
+            <label class="fg-password-field"><span>Nouveau mot de passe</span><input type="password" name="password" placeholder="Laisser vide pour conserver" autocomplete="new-password"></label>
+          </div>
+          <footer class="fg-user-actions">
+            <button type="button" data-fg-action="save-user"><i class="fa-solid fa-floppy-disk"></i> Enregistrer</button>
+            <button type="button" class="fg-danger" data-fg-action="delete-user" {{#if isSelf}}disabled{{/if}}><i class="fa-solid fa-trash"></i> Supprimer</button>
+          </footer>
+        </article>
+        {{/each}}
+      </div>
+      <p class="fg-managed-empty" hidden>Aucun utilisateur ne correspond à cette recherche.</p>
+      <div class="fg-note"><i class="fa-solid fa-key"></i><p>Les mots de passe existants ne sont jamais affichés. Saisissez uniquement un nouveau mot de passe pour le remplacer.</p></div>
+    </div>
+  </details>
+
+  {{#if bootstrapMode}}
+  <div class="fg-warning"><i class="fa-solid fa-triangle-exclamation"></i><div><strong>Première configuration</strong><p>Aucun administrateur n'est encore défini. Tous les MJ peuvent ouvrir ce panneau jusqu'au premier enregistrement.</p></div></div>
+  {{/if}}
+
+  <fieldset class="fg-fieldset">
+    <legend><i class="fa-solid fa-user-shield"></i> Qui peut administrer Foundry ?</legend>
+    <details class="fg-admin-picker" {{#if bootstrapMode}}open{{/if}}>
+      <summary><span class="fg-admin-summary-label"><i class="fa-solid fa-users-gear"></i> Choisir les MJ autorisés</span><span class="fg-admin-count">{{selectedAdminCount}} sélectionné{{#unless singleSelectedAdmin}}s{{/unless}}</span></summary>
+      <div class="fg-admin-picker-panel">
+        <label class="fg-user-search-wrap"><i class="fa-solid fa-magnifying-glass"></i><input type="search" class="fg-user-search" placeholder="Rechercher un MJ…" autocomplete="off"></label>
+        <div class="fg-user-list">
+          {{#each gmUsers}}
+          <label class="fg-user-row" data-fg-user-name="{{name}}"><span class="fg-user-main"><span class="fg-user-color" style="--fg-user-color: {{color}}"></span><span><strong>{{name}}</strong><small>{{roleLabel}}{{#if active}} · connecté{{/if}}</small></span></span><input type="checkbox" name="adminIds" value="{{id}}" {{checked selected}}></label>
+          {{/each}}
+        </div>
+        <p class="fg-empty-search" hidden>Aucun MJ ne correspond à cette recherche.</p>
+      </div>
+    </details>
+    <p class="hint">Les MJ sélectionnés garderont accès aux réglages protégés. Il doit toujours en rester au moins un.</p>
+  </fieldset>
+
+  <fieldset class="fg-fieldset">
+    <legend><i class="fa-solid fa-lock"></i> Ce que les autres MJ ne peuvent pas modifier</legend>
+    <label class="fg-toggle-row"><span><strong>Réglages de Foundry</strong><small>Options générales, réglages du système de jeu et paramètres des modules.</small></span><input type="checkbox" name="protectSettings" {{checked protections.settings}}></label>
+    <label class="fg-toggle-row"><span><strong>Modules actifs</strong><small>Empêche d'activer, désactiver ou modifier la liste des modules utilisés dans ce monde.</small></span><input type="checkbox" name="protectModules" {{checked protections.modules}}></label>
+    <label class="fg-toggle-row"><span><strong>Comptes et permissions</strong><small>Empêche de modifier les utilisateurs, leurs rôles et leurs droits.</small></span><input type="checkbox" name="protectUsers" {{checked protections.users}}></label>
+    <label class="fg-toggle-row"><span><strong>Réglages du monde</strong><small>Protège les options générales propres à ce monde.</small></span><input type="checkbox" name="protectWorld" {{checked protections.world}}></label>
+    <label class="fg-toggle-row"><span><strong>Retour à l'administration de Foundry</strong><small>Empêche de quitter le monde pour revenir à l'écran d'administration.</small></span><input type="checkbox" name="protectSetup" {{checked protections.setup}}></label>
+  </fieldset>
+
+  <div class="fg-note"><i class="fa-solid fa-circle-info"></i><p><strong>À savoir :</strong> Guardian empêche surtout les erreurs et les manipulations accidentelles. Un véritable compte Game Master reste un compte très puissant dans Foundry.</p></div>
+  <footer class="fg-footer"><button type="submit" class="fg-save"><i class="fa-solid fa-floppy-disk"></i> Enregistrer les accès</button></footer>
+</div>

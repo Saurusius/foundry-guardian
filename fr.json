@@ -1,0 +1,12 @@
+{
+  "FG.Name": "Foundry Guardian",
+  "FG.ConfigName": "Accès administrateur",
+  "FG.ConfigLabel": "Gérer les accès",
+  "FG.ConfigHint": "Choisissez les MJ qui peuvent modifier les réglages importants de Foundry et de ce monde.",
+  "FG.Denied": "Foundry Guardian : cet accès est réservé aux administrateurs autorisés.",
+  "FG.Saved": "Foundry Guardian : accès enregistrés.",
+  "FG.UsersTitle": "Foundry Guardian — Utilisateurs",
+  "FG.UserCreated": "Foundry Guardian : utilisateur créé.",
+  "FG.UserUpdated": "Foundry Guardian : utilisateur mis à jour.",
+  "FG.UserDeleted": "Foundry Guardian : utilisateur supprimé."
+}
