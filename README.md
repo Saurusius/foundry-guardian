@@ -74,5 +74,62 @@ Il doit ensuite toujours rester au moins un administrateur Guardian autorisé.
 
 Pour ouvrir directement Foundry Guardian depuis une macro Script :
 
+Cette macro peut être placée dans la hotbar pour accéder rapidement à la gestion du module.
+
+📦 Installation
+Installation via le manifest
+
+Dans :
+
+Configuration et administration → Modules complémentaires → Installer un module
+
+utilisez :
+
+https://github.com/Saurusius/foundry-guardian/releases/latest/download/module.json
+Installation manuelle
+
+Téléchargez :
+
+foundry-guardian-v1.2.0.zip
+
+depuis la dernière release GitHub.
+
+Extrayez ensuite le dossier :
+
+foundry-guardian
+
+dans :
+
+<Foundry Data>/modules/
+
+Redémarrez Foundry VTT puis activez Foundry Guardian dans votre monde.
+
+⚙️ Compatibilité
+Foundry VTT minimum : 14
+Version vérifiée : 14.366
+Système de jeu : indépendant
+⚠️ Limite de sécurité
+
+Foundry Guardian est avant tout conçu pour séparer les responsabilités administratives et empêcher les erreurs ou manipulations accidentelles.
+
+Un véritable compte Game Master reste très puissant selon le système de permissions natif de Foundry VTT.
+
+Guardian complète donc les permissions Foundry mais ne remplace pas leur modèle de sécurité.
+
+🔧 API
+
+Une petite API est disponible pour les macros, le diagnostic et les intégrations :
+
+game.modules.get("foundry-guardian").api.isAuthorized();
+game.modules.get("foundry-guardian").api.getAdminIds();
+game.modules.get("foundry-guardian").api.getProtections();
+game.modules.get("foundry-guardian").api.openConfig();
+📜 Version
+
+Version actuelle : 1.2.0
+
+Voir CHANGELOG.md pour l'historique des versions.
+
+Développé pour Foundry VTT par Saurusius.
 ```js
 game.modules.get("foundry-guardian")?.api?.openConfig();
