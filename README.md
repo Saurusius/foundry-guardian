@@ -74,6 +74,9 @@ Il doit ensuite toujours rester au moins un administrateur Guardian autorisé.
 
 Pour ouvrir directement Foundry Guardian depuis une macro Script :
 
+```js
+game.modules.get("foundry-guardian")?.api?.openConfig();
+
 Cette macro peut être placée dans la hotbar pour accéder rapidement à la gestion du module.
 
 📦 Installation
@@ -131,5 +134,3 @@ Version actuelle : 1.2.0
 Voir CHANGELOG.md pour l'historique des versions.
 
 Développé pour Foundry VTT par Saurusius.
-```js
-game.modules.get("foundry-guardian")?.api?.openConfig();
