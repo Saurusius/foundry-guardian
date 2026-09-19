@@ -141,7 +141,7 @@ Ouvre directement l’interface principale de configuration de Foundry Guardian.
 
 ## 📦 Installation
 
-### Installation par manifest
+### Méthode recommandée — installation par manifeste
 
 Dans Foundry VTT :
 
@@ -151,20 +151,20 @@ Dans Foundry VTT :
 4. Collez l’URL suivante :
 
 ```text
-https://raw.githubusercontent.com/Saurusius/foundry-guardian/main/module.json
+https://github.com/Saurusius/foundry-guardian/releases/latest/download/module.json
 ```
 
-Foundry téléchargera automatiquement la dernière version disponible.
+Foundry téléchargera automatiquement le ZIP correspondant à la dernière version stable publiée et pourra ensuite détecter les futures mises à jour.
 
 ### Installation manuelle
 
-Téléchargez le ZIP de la dernière Release GitHub :
+La dernière release est toujours disponible ici :
 
 ```text
-foundry-guardian-v1.2.0.zip
+https://github.com/Saurusius/foundry-guardian/releases/latest
 ```
 
-Extrayez son contenu dans :
+Téléchargez le fichier `foundry-guardian-vX.Y.Z.zip`, puis extrayez son contenu dans :
 
 ```text
 FoundryVTT/Data/modules/foundry-guardian/
